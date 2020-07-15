@@ -12,6 +12,8 @@
                 <outlet property="bottomPannel" destination="hpx-Ul-xcw" id="Bbj-HN-MYz"/>
                 <outlet property="fallingView" destination="CE0-d6-1Ea" id="Wky-T9-w4L"/>
                 <outlet property="fallingWordLabel" destination="qSW-Rb-JEa" id="zdv-Db-MTo"/>
+                <outlet property="flashView" destination="858-7G-Iqa" id="pdU-DN-WM1"/>
+                <outlet property="leftCounterLabel" destination="pGe-uA-pin" id="qQK-zA-SRs"/>
                 <outlet property="titleWordLabel" destination="7jc-c8-TvB" id="1kY-dJ-rNt"/>
                 <outlet property="topPannel" destination="k0G-bf-WAU" id="ylb-57-g6C"/>
                 <outlet property="view" destination="SrC-Iy-eMw" id="zgd-gb-DdV"/>
@@ -22,6 +24,28 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="858-7G-Iqa" userLabel="FlashView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CE0-d6-1Ea" userLabel="FallingWordView">
+                    <rect key="frame" x="147" y="104" width="120.5" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSW-Rb-JEa" userLabel="fallingWordLabel">
+                            <rect key="frame" x="32" y="17" width="56.5" height="26.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="qSW-Rb-JEa" firstAttribute="centerX" secondItem="CE0-d6-1Ea" secondAttribute="centerX" id="Pe1-WW-XkY"/>
+                        <constraint firstAttribute="height" constant="60" id="YD7-k5-oiT"/>
+                        <constraint firstItem="qSW-Rb-JEa" firstAttribute="centerY" secondItem="CE0-d6-1Ea" secondAttribute="centerY" id="YcO-Y4-q1u"/>
+                        <constraint firstItem="qSW-Rb-JEa" firstAttribute="leading" secondItem="CE0-d6-1Ea" secondAttribute="leading" constant="32" id="mVY-yT-vWf"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0G-bf-WAU" userLabel="TopPannel">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="164"/>
                     <subviews>
@@ -72,11 +96,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
                                     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" image="checkmark.circle.fill" catalog="system"/>
+                                    <connections>
+                                        <action selector="onCorrectTap" destination="-1" eventType="touchUpInside" id="wMq-py-nlI"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9o-Wc-DSO">
                                     <rect key="frame" x="207" y="0.0" width="207" height="60"/>
                                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" image="clear.fill" catalog="system"/>
+                                    <connections>
+                                        <action selector="onWrongTap" destination="-1" eventType="touchUpInside" id="uvi-yT-ml0"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>
@@ -92,27 +122,10 @@
                         <constraint firstItem="Hnx-uw-Lx8" firstAttribute="top" secondItem="hpx-Ul-xcw" secondAttribute="top" id="Wdc-sG-3J7"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CE0-d6-1Ea" userLabel="FallingWordView">
-                    <rect key="frame" x="147" y="104" width="120.5" height="60"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSW-Rb-JEa" userLabel="fallingWordLabel">
-                            <rect key="frame" x="32" y="17" width="56.5" height="26.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstItem="qSW-Rb-JEa" firstAttribute="centerX" secondItem="CE0-d6-1Ea" secondAttribute="centerX" id="Pe1-WW-XkY"/>
-                        <constraint firstAttribute="height" constant="60" id="YD7-k5-oiT"/>
-                        <constraint firstItem="qSW-Rb-JEa" firstAttribute="centerY" secondItem="CE0-d6-1Ea" secondAttribute="centerY" id="YcO-Y4-q1u"/>
-                        <constraint firstItem="qSW-Rb-JEa" firstAttribute="leading" secondItem="CE0-d6-1Ea" secondAttribute="leading" constant="32" id="mVY-yT-vWf"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="858-7G-Iqa" firstAttribute="top" secondItem="SrC-Iy-eMw" secondAttribute="top" id="1pC-OO-zUf"/>
                 <constraint firstAttribute="bottom" secondItem="hpx-Ul-xcw" secondAttribute="bottom" id="5SR-ri-jyE"/>
                 <constraint firstItem="3aO-OA-AMM" firstAttribute="trailing" secondItem="k0G-bf-WAU" secondAttribute="trailing" id="KY3-oY-eHi"/>
                 <constraint firstItem="CE0-d6-1Ea" firstAttribute="centerX" secondItem="SrC-Iy-eMw" secondAttribute="centerX" id="LMC-rg-G0m"/>
@@ -122,8 +135,11 @@
                 <constraint firstItem="CE0-d6-1Ea" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3aO-OA-AMM" secondAttribute="leading" constant="24" id="bBJ-06-qAm"/>
                 <constraint firstItem="k0G-bf-WAU" firstAttribute="leading" secondItem="3aO-OA-AMM" secondAttribute="leading" id="fTj-Gj-ii2"/>
                 <constraint firstItem="3aO-OA-AMM" firstAttribute="trailing" secondItem="hpx-Ul-xcw" secondAttribute="trailing" id="gIw-uZ-x94"/>
+                <constraint firstItem="3aO-OA-AMM" firstAttribute="trailing" secondItem="858-7G-Iqa" secondAttribute="trailing" id="ifU-fj-Svc"/>
                 <constraint firstItem="f76-Xl-ryd" firstAttribute="top" secondItem="3aO-OA-AMM" secondAttribute="top" id="oGf-B0-8st"/>
                 <constraint firstItem="CE0-d6-1Ea" firstAttribute="bottom" secondItem="k0G-bf-WAU" secondAttribute="bottom" id="vu9-2m-9S4"/>
+                <constraint firstItem="858-7G-Iqa" firstAttribute="leading" secondItem="3aO-OA-AMM" secondAttribute="leading" id="xr7-FA-raI"/>
+                <constraint firstAttribute="bottom" secondItem="858-7G-Iqa" secondAttribute="bottom" id="zKZ-gn-aV1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="3aO-OA-AMM"/>
             <point key="canvasLocation" x="-319" y="-141"/>

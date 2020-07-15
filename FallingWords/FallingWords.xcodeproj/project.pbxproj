@@ -15,6 +15,9 @@
 		19702FF624BF6820008F5471 /* GameScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FF524BF6820008F5471 /* GameScreenAssembly.swift */; };
 		19702FF824BF6B14008F5471 /* GameScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19702FF724BF6B14008F5471 /* GameScreenViewController.xib */; };
 		19702FFA24BF76E5008F5471 /* GameScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FF924BF76E5008F5471 /* GameScreenViewModel.swift */; };
+		19702FFD24BF8549008F5471 /* WordsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FFC24BF8549008F5471 /* WordsService.swift */; };
+		19702FFF24BF8562008F5471 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FFE24BF8562008F5471 /* Word.swift */; };
+		1970300124BF8593008F5471 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = 1970300024BF8593008F5471 /* words.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		19702FF524BF6820008F5471 /* GameScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenAssembly.swift; sourceTree = "<group>"; };
 		19702FF724BF6B14008F5471 /* GameScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameScreenViewController.xib; sourceTree = "<group>"; };
 		19702FF924BF76E5008F5471 /* GameScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewModel.swift; sourceTree = "<group>"; };
+		19702FFC24BF8549008F5471 /* WordsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsService.swift; sourceTree = "<group>"; };
+		19702FFE24BF8562008F5471 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		1970300024BF8593008F5471 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		19702FEE24BF6719008F5471 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				19702FFB24BF8535008F5471 /* Model */,
 				19702FF124BF67A4008F5471 /* UI */,
 				19702FCC24BF663B008F5471 /* AppDelegate.swift */,
 			);
@@ -108,6 +115,7 @@
 		19702FEF24BF6735008F5471 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				1970300024BF8593008F5471 /* words.json */,
 				19702FDA24BF663F008F5471 /* Info.plist */,
 				19702FD724BF663F008F5471 /* LaunchScreen.storyboard */,
 				19702FD524BF663F008F5471 /* Assets.xcassets */,
@@ -132,6 +140,15 @@
 				19702FF724BF6B14008F5471 /* GameScreenViewController.xib */,
 			);
 			path = GameScreen;
+			sourceTree = "<group>";
+		};
+		19702FFB24BF8535008F5471 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				19702FFC24BF8549008F5471 /* WordsService.swift */,
+				19702FFE24BF8562008F5471 /* Word.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19702FD924BF663F008F5471 /* LaunchScreen.storyboard in Resources */,
+				1970300124BF8593008F5471 /* words.json in Resources */,
 				19702FD624BF663F008F5471 /* Assets.xcassets in Resources */,
 				19702FF824BF6B14008F5471 /* GameScreenViewController.xib in Resources */,
 			);
@@ -238,7 +256,9 @@
 				19702FF624BF6820008F5471 /* GameScreenAssembly.swift in Sources */,
 				19702FF424BF67F6008F5471 /* GameScreenViewController.swift in Sources */,
 				19702FFA24BF76E5008F5471 /* GameScreenViewModel.swift in Sources */,
+				19702FFD24BF8549008F5471 /* WordsService.swift in Sources */,
 				19702FCD24BF663B008F5471 /* AppDelegate.swift in Sources */,
+				19702FFF24BF8562008F5471 /* Word.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
