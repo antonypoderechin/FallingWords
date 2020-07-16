@@ -15,9 +15,10 @@ class GameScreenAssembly {
     static func create() -> UIViewController {
         let controller = GameScreenViewController()
         let viewModel = GameScreenViewModel()
-        let wordsService = WordsService()
         
-        viewModel.wordsService = wordsService
+        viewModel.gameEngine = GameEngine()
+        viewModel.gameEngine.delegate = viewModel
+        viewModel.wordsService = WordsService()
         controller.viewModel = viewModel
         
         return controller

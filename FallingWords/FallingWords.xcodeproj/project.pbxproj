@@ -18,6 +18,7 @@
 		19702FFD24BF8549008F5471 /* WordsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FFC24BF8549008F5471 /* WordsService.swift */; };
 		19702FFF24BF8562008F5471 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FFE24BF8562008F5471 /* Word.swift */; };
 		1970300124BF8593008F5471 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = 1970300024BF8593008F5471 /* words.json */; };
+		1986292724C038A300C8D634 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986292624C038A300C8D634 /* GameEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		19702FFC24BF8549008F5471 /* WordsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsService.swift; sourceTree = "<group>"; };
 		19702FFE24BF8562008F5471 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		1970300024BF8593008F5471 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		1986292624C038A300C8D634 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			children = (
 				19702FFC24BF8549008F5471 /* WordsService.swift */,
 				19702FFE24BF8562008F5471 /* Word.swift */,
+				1986292624C038A300C8D634 /* GameEngine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			files = (
 				19702FF624BF6820008F5471 /* GameScreenAssembly.swift in Sources */,
 				19702FF424BF67F6008F5471 /* GameScreenViewController.swift in Sources */,
+				1986292724C038A300C8D634 /* GameEngine.swift in Sources */,
 				19702FFA24BF76E5008F5471 /* GameScreenViewModel.swift in Sources */,
 				19702FFD24BF8549008F5471 /* WordsService.swift in Sources */,
 				19702FCD24BF663B008F5471 /* AppDelegate.swift in Sources */,

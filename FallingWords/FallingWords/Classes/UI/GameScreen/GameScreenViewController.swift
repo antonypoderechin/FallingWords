@@ -33,7 +33,7 @@ class GameScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewModel.restart()
+        viewModel.reload()
     }
     
     // MARK: - Private
@@ -54,7 +54,7 @@ class GameScreenViewController: UIViewController {
         viewModel.$wordsLeft.sink { [weak self] (left) in
             self?.leftCounterLabel.text = left > 0 ? "\(left) left": "last word"
         }.store(in: &disposables)
-        viewModel.$correctCount.sink { [weak self] count in
+        viewModel.$correctCount.removeDuplicates().sink { [weak self] count in
             // View should not flash when count is reseted to 0
             // Probably not very clean solution
             if count == 0 {
@@ -62,7 +62,7 @@ class GameScreenViewController: UIViewController {
             }
             self?.flashBackground(color: .green)
         }.store(in: &disposables)
-        viewModel.$wrongCount.sink { [weak self] count in
+        viewModel.$wrongCount.removeDuplicates().sink { [weak self] count in
             // View should not flash when count is reseted to 0
             // Probably not very clean solution
             if count == 0 {
@@ -85,7 +85,7 @@ class GameScreenViewController: UIViewController {
             message: "Your score is \(viewModel.correctCount)/\(viewModel.wordsInRound)",
             preferredStyle: .alert)
         let restart = UIAlertAction(title: "Restart", style: .default) { [weak self] _ in
-            self?.viewModel.restart()
+            self?.viewModel.reload()
         }
         alert.addAction(restart)
         scoreAlert = alert
