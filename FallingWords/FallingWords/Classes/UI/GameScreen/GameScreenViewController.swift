@@ -54,7 +54,7 @@ class GameScreenViewController: UIViewController {
         viewModel.$wordsLeft.sink { [weak self] (left) in
             self?.leftCounterLabel.text = left > 0 ? "\(left) left": "last word"
         }.store(in: &disposables)
-        viewModel.$correctCount.removeDuplicates().sink { [weak self] count in
+        viewModel.$correctCount.sink { [weak self] count in
             // View should not flash when count is reseted to 0
             // Probably not very clean solution
             if count == 0 {
@@ -62,7 +62,7 @@ class GameScreenViewController: UIViewController {
             }
             self?.flashBackground(color: .green)
         }.store(in: &disposables)
-        viewModel.$wrongCount.removeDuplicates().sink { [weak self] count in
+        viewModel.$wrongCount.sink { [weak self] count in
             // View should not flash when count is reseted to 0
             // Probably not very clean solution
             if count == 0 {
