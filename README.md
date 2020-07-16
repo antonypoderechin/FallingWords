@@ -1,4 +1,4 @@
-#FallingWords
+# FallingWords
 
 Here are some documentation and comments for the solution of Option #1 (Falling Words) of the technical challenge.
 
