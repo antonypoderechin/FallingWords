@@ -15,7 +15,7 @@ import UIKit
  I've seen different versions of the MVVM some use ViewModel as simple entity and some stores here some screen related logic.
  For this app I've chosen last approach to make code more easy to read.
  */
-class GameScreenViewModel: GameEngineDelegate {
+class GameScreenViewModel {
     // MARK: - Properties
     @Published var wordPosition: CGFloat = 0
     @Published var currentWord: String = ""
@@ -28,7 +28,11 @@ class GameScreenViewModel: GameEngineDelegate {
     
     var wordsInRound = 5
     var wordsService: WordsService!
-    var gameEngine: GameEngine!
+    var gameEngine: GameEngine! {
+        didSet {
+            gameBindings()
+        }
+    }
     
     private var display: CADisplayLink?
     private var disposables = Set<AnyCancellable>()
@@ -64,6 +68,20 @@ class GameScreenViewModel: GameEngineDelegate {
     }
     
     // MARK: - Private
+    private func gameBindings() {
+        gameEngine.$wordPosition.assign(to: \.wordPosition, on: self).store(in: &disposables)
+        gameEngine.$wordsLeft.assign(to: \.wordsLeft, on: self).store(in: &disposables)
+        gameEngine.$correctCount.assign(to: \.correctCount, on: self).store(in: &disposables)
+        gameEngine.$wrongCount.assign(to: \.wrongCount, on: self).store(in: &disposables)
+        gameEngine.$currentWordModel.compactMap { $0?.eng }.assign(to: \.currentWord, on: self).store(in: &disposables)
+        gameEngine.$fallingWordModel.compactMap { $0?.spa }.assign(to: \.fallingWord, on: self).store(in: &disposables)
+        gameEngine.$finished.sink { [weak self] (finished) in
+            if finished {
+                self?.gameFinished()
+            }
+        }.store(in: &disposables)
+    }
+    
     private func start(words: [Word]) {
         display = CADisplayLink(target: self, selector: #selector(self.update))
         display?.add(to: .main, forMode: .default)
@@ -72,20 +90,12 @@ class GameScreenViewModel: GameEngineDelegate {
         wordsInRound = gameEngine.wordsInRound
     }
     
-    @objc private func update() {
-        gameEngine.update(timePassed: display?.duration ?? 0)
-        // TODO: Do not update all properties on every update
-        wordPosition = gameEngine.wordPosition
-        currentWord = gameEngine.currentWordModel?.eng ?? ""
-        fallingWord = gameEngine.fallingWordModel?.spa ?? ""
-        wordsLeft = gameEngine.wordsLeft
-        correctCount = gameEngine.correctCount
-        wrongCount = gameEngine.wrongCount
-    }
-    
-    // MARK: - GameEngineDelegate
-    func gameFinished() {
+    private func gameFinished() {
         display?.invalidate()
         showScore = true
+    }
+    
+    @objc private func update() {
+        gameEngine.update(timePassed: display?.duration ?? 0)
     }
 }

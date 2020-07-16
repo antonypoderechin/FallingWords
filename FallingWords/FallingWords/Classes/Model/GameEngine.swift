@@ -9,28 +9,24 @@
 import Foundation
 import UIKit
 
-protocol GameEngineDelegate: AnyObject {
-    func gameFinished()
-}
-
 /**
  Class encapsulates game logic. In update(timePassed:) receives time passed from last frame.
  GameEngine do not contain random word generator and game loop timer for better testability.
  */
 class GameEngine {
     // MARK: - Properties
-    weak var delegate: GameEngineDelegate?
-    
     let wordFallTime = 3.0
     let wordsInRound = 5
     
-    var words = [Word]()
-    var currentWordModel: Word?
-    var fallingWordModel: Word?
-    var wordPosition: CGFloat = 0
-    var wordsLeft = 0
-    var correctCount = 0
-    var wrongCount = 0
+    @Published var currentWordModel: Word?
+    @Published var fallingWordModel: Word?
+    @Published var wordPosition: CGFloat = 0
+    @Published var wordsLeft = 0
+    @Published var correctCount = 0
+    @Published var wrongCount = 0
+    @Published var finished = false
+    
+    private var words = [Word]()
     
     // MARK: - Pubilc
     func start(words: [Word]) {
@@ -38,10 +34,14 @@ class GameEngine {
         wordsLeft = wordsInRound
         correctCount = 0
         wrongCount = 0
+        finished = false
         updateWords()
     }
     
     func update(timePassed: CFTimeInterval) {
+        if finished {
+            return
+        }
         wordPosition = wordPosition + CGFloat(timePassed / wordFallTime)
         if wordPosition > 1 {
             updateWords()
@@ -73,7 +73,7 @@ class GameEngine {
         wordsLeft = wordsLeft - 1
         wordPosition = 0
         if wordsLeft < 0 {
-            delegate?.gameFinished()
+            finished = true
         }
     }
 }

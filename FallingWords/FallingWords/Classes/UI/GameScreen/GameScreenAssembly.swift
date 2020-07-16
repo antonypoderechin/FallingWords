@@ -17,7 +17,6 @@ class GameScreenAssembly {
         let viewModel = GameScreenViewModel()
         
         viewModel.gameEngine = GameEngine()
-        viewModel.gameEngine.delegate = viewModel
         viewModel.wordsService = WordsService()
         controller.viewModel = viewModel
         
