@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19526BDF24C0B4120037AA8F /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = 1970300024BF8593008F5471 /* words.json */; };
+		19526BE124C0BCA00037AA8F /* GameWordPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19526BE024C0BCA00037AA8F /* GameWordPicker.swift */; };
+		19526BE324C0BFD20037AA8F /* GameWordPickerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19526BE224C0BFD20037AA8F /* GameWordPickerStub.swift */; };
 		19702FCD24BF663B008F5471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FCC24BF663B008F5471 /* AppDelegate.swift */; };
 		19702FD624BF663F008F5471 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19702FD524BF663F008F5471 /* Assets.xcassets */; };
 		19702FD924BF663F008F5471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19702FD724BF663F008F5471 /* LaunchScreen.storyboard */; };
-		19702FE424BF663F008F5471 /* FallingWordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FE324BF663F008F5471 /* FallingWordsTests.swift */; };
+		19702FE424BF663F008F5471 /* GameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FE324BF663F008F5471 /* GameEngineTests.swift */; };
 		19702FF424BF67F6008F5471 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FF324BF67F6008F5471 /* GameScreenViewController.swift */; };
 		19702FF624BF6820008F5471 /* GameScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19702FF524BF6820008F5471 /* GameScreenAssembly.swift */; };
 		19702FF824BF6B14008F5471 /* GameScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19702FF724BF6B14008F5471 /* GameScreenViewController.xib */; };
@@ -32,13 +35,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19526BE024C0BCA00037AA8F /* GameWordPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWordPicker.swift; sourceTree = "<group>"; };
+		19526BE224C0BFD20037AA8F /* GameWordPickerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWordPickerStub.swift; sourceTree = "<group>"; };
 		19702FC924BF663B008F5471 /* FallingWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallingWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19702FCC24BF663B008F5471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19702FD524BF663F008F5471 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19702FD824BF663F008F5471 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19702FDA24BF663F008F5471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19702FDF24BF663F008F5471 /* FallingWordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FallingWordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19702FE324BF663F008F5471 /* FallingWordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingWordsTests.swift; sourceTree = "<group>"; };
+		19702FE324BF663F008F5471 /* GameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineTests.swift; sourceTree = "<group>"; };
 		19702FE524BF663F008F5471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19702FF324BF67F6008F5471 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
 		19702FF524BF6820008F5471 /* GameScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenAssembly.swift; sourceTree = "<group>"; };
@@ -98,7 +103,8 @@
 		19702FE224BF663F008F5471 /* FallingWordsTests */ = {
 			isa = PBXGroup;
 			children = (
-				19702FE324BF663F008F5471 /* FallingWordsTests.swift */,
+				19702FE324BF663F008F5471 /* GameEngineTests.swift */,
+				19526BE224C0BFD20037AA8F /* GameWordPickerStub.swift */,
 				19702FE524BF663F008F5471 /* Info.plist */,
 			);
 			path = FallingWordsTests;
@@ -150,6 +156,7 @@
 				19702FFC24BF8549008F5471 /* WordsService.swift */,
 				19702FFE24BF8562008F5471 /* Word.swift */,
 				1986292624C038A300C8D634 /* GameEngine.swift */,
+				19526BE024C0BCA00037AA8F /* GameWordPicker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19526BDF24C0B4120037AA8F /* words.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +267,7 @@
 				19702FF624BF6820008F5471 /* GameScreenAssembly.swift in Sources */,
 				19702FF424BF67F6008F5471 /* GameScreenViewController.swift in Sources */,
 				1986292724C038A300C8D634 /* GameEngine.swift in Sources */,
+				19526BE124C0BCA00037AA8F /* GameWordPicker.swift in Sources */,
 				19702FFA24BF76E5008F5471 /* GameScreenViewModel.swift in Sources */,
 				19702FFD24BF8549008F5471 /* WordsService.swift in Sources */,
 				19702FCD24BF663B008F5471 /* AppDelegate.swift in Sources */,
@@ -270,7 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19702FE424BF663F008F5471 /* FallingWordsTests.swift in Sources */,
+				19702FE424BF663F008F5471 /* GameEngineTests.swift in Sources */,
+				19526BE324C0BFD20037AA8F /* GameWordPickerStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

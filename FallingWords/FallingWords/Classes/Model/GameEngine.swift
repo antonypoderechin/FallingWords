@@ -15,6 +15,8 @@ import UIKit
  */
 class GameEngine {
     // MARK: - Properties
+    var wordPicker: GameWordPicker!
+    
     let wordFallTime = 3.0
     let wordsInRound = 5
     
@@ -68,8 +70,8 @@ class GameEngine {
     
     // MARK: - Private
     private func updateWords() {
-        currentWordModel = words.randomElement()
-        fallingWordModel = Bool.random() ? currentWordModel: words.randomElement()
+        currentWordModel = wordPicker.currentWord(words: words)
+        fallingWordModel = wordPicker.fallingWord(currentWord: currentWordModel, words: words)
         wordsLeft = wordsLeft - 1
         wordPosition = 0
         if wordsLeft < 0 {
